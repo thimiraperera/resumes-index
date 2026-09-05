@@ -16,7 +16,7 @@
   --ground-2:#39434F;
   --paper:#FFFFFF;
   --soft:#C8D0DA;
-  --dim:#7C8794;
+  --dim:#96A1AF;
   --hair:rgba(255,255,255,.13);
   --display:'Poppins',system-ui,sans-serif;
   --text:'Lato',system-ui,sans-serif;
@@ -93,8 +93,8 @@ h1 em{
 .count::after{ content:''; flex:1; height:1px; background:var(--hair); }
 
 .roster{ list-style:none; position:relative; padding-left:34px; }
-.roster::before{
-  content:''; position:absolute; left:5px; top:1.55rem; bottom:1.55rem;
+.roster:has(li:nth-child(2))::before{
+  content:''; position:absolute; left:5px; top:1.7rem; bottom:1.7rem;
   width:1px; background:var(--hair);
 }
 .roster li{
