@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Résumé Work — Thimira Perera</title>
+<meta name="description" content="An index of the curricula vitae I have designed. The documents themselves are private.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#39434F;
+  --navy-deep:#2E3742;
+  --paper:#FFFFFF;
+  --soft:#CFD6DE;
+  --dim:#8B96A4;
+  --rule:rgba(255,255,255,.14);
+  --display:'Poppins',system-ui,sans-serif;
+  --text:'Lato',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  font-family:var(--text);
+  background:var(--navy-deep);
+  color:var(--soft);
+  min-height:100vh;
+  display:flex; align-items:center; justify-content:center;
+  padding:8vh 6vw;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{ width:100%; max-width:640px; }
+
+.eyebrow{
+  font-family:var(--display); font-weight:600;
+  font-size:.66rem; letter-spacing:.28em; text-transform:uppercase;
+  color:var(--dim);
+}
+h1{
+  font-family:var(--display); font-weight:700;
+  font-size:clamp(2.1rem,7vw,3.1rem); line-height:1.05;
+  letter-spacing:.02em; color:var(--paper);
+  margin:1.1rem 0 0;
+}
+.rule{ width:44px; height:3px; background:var(--paper); margin:1.6rem 0 1.5rem; }
+.lede{
+  font-size:1rem; line-height:1.7; color:var(--soft); max-width:46ch;
+  font-weight:300;
+}
+
+.people{ list-style:none; margin:3.2rem 0 0; }
+.people li{
+  display:flex; align-items:baseline; gap:1.1rem;
+  padding:1.05rem 0;
+  border-top:1px solid var(--rule);
+}
+.people li:last-child{ border-bottom:1px solid var(--rule); }
+.people .n{
+  font-family:var(--display); font-weight:600;
+  font-size:.72rem; color:var(--dim); letter-spacing:.1em;
+  flex:none; width:2.2rem;
+}
+.people .who{
+  font-family:var(--display); font-weight:600;
+  font-size:clamp(1.05rem,3.4vw,1.28rem); color:var(--paper);
+  letter-spacing:.01em;
+}
+
+footer{
+  margin-top:3.4rem; padding-top:1.4rem; border-top:1px solid var(--rule);
+  font-size:.82rem; line-height:1.65; color:var(--dim); font-weight:300;
+}
+footer b{ color:var(--soft); font-weight:400; }
+a{ color:var(--soft); }
+
+@media (prefers-reduced-motion:no-preference){
+  .wrap > *, .people li{ animation:rise .6s cubic-bezier(.2,.7,.3,1) backwards; }
+  .wrap > *:nth-child(2){ animation-delay:.05s }
+  .wrap > *:nth-child(3){ animation-delay:.1s }
+  .wrap > *:nth-child(4){ animation-delay:.15s }
+  .people li:nth-child(1){ animation-delay:.24s }
+  .people li:nth-child(2){ animation-delay:.30s }
+  .people li:nth-child(3){ animation-delay:.36s }
+  .people li:nth-child(4){ animation-delay:.42s }
+  @keyframes rise{ from{ opacity:0; transform:translateY(10px) } to{ opacity:1; transform:none } }
+}
+</style>
+</head>
+<body>
+  <main class="wrap">
+    <p class="eyebrow">Curriculum Vitae Design</p>
+    <h1>Résumé work</h1>
+    <div class="rule"></div>
+    <p class="lede">An index of the curricula vitae I have written and designed. Each one is built from scratch for the post the person is actually applying for.</p>
+
+    <ol class="people">
+      <li><span class="n">01</span><span class="who">Dewmini Abekoon</span></li>
+    </ol>
+
+    <footer>
+      Names only. The documents and every personal detail in them are kept in a
+      <b>private</b> repository and are not published here.
+      <br>Thimira Perera · <a href="mailto:thimiraperera10@gmail.com">thimiraperera10@gmail.com</a>
+    </footer>
+  </main>
+</body>
+</html>
