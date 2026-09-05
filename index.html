@@ -4,104 +4,189 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Résumé Work — Thimira Perera</title>
-<meta name="description" content="An index of the curricula vitae I have designed. The documents themselves are private.">
-<meta name="robots" content="noindex">
+<meta name="description" content="An index of the curricula vitae I have written and designed. Names only — the documents themselves are private.">
+<meta name="theme-color" content="#252D37">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23252D37'/><rect x='9' y='7' width='14' height='18' rx='1.5' fill='none' stroke='white' stroke-width='1.6'/><path d='M12.5 12h7M12.5 16h7M12.5 20h4' stroke='white' stroke-width='1.4' stroke-linecap='round'/></svg>">
 <style>
 :root{
-  --navy:#39434F;
-  --navy-deep:#2E3742;
+  --ground:#252D37;
+  --ground-2:#39434F;
   --paper:#FFFFFF;
-  --soft:#CFD6DE;
-  --dim:#8B96A4;
-  --rule:rgba(255,255,255,.14);
+  --soft:#C8D0DA;
+  --dim:#7C8794;
+  --hair:rgba(255,255,255,.13);
   --display:'Poppins',system-ui,sans-serif;
   --text:'Lato',system-ui,sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0;}
+
 body{
   font-family:var(--text);
-  background:var(--navy-deep);
   color:var(--soft);
+  background:
+    radial-gradient(120% 90% at 82% 4%, rgba(87,104,128,.42) 0%, rgba(87,104,128,0) 58%),
+    radial-gradient(90% 70% at 0% 100%, rgba(58,70,88,.5) 0%, rgba(58,70,88,0) 60%),
+    var(--ground);
   min-height:100vh;
   display:flex; align-items:center; justify-content:center;
-  padding:8vh 6vw;
+  padding:9vh 7vw;
+  position:relative; overflow-x:hidden;
   -webkit-font-smoothing:antialiased;
 }
-.wrap{ width:100%; max-width:640px; }
 
-.eyebrow{
-  font-family:var(--display); font-weight:600;
-  font-size:.66rem; letter-spacing:.28em; text-transform:uppercase;
-  color:var(--dim);
+/* stacked A4 sheets, ghosted into the background */
+.sheets{ position:fixed; inset:0; pointer-events:none; overflow:hidden; z-index:0; }
+.sheets i{
+  position:absolute; display:block;
+  width:min(38vw,430px); aspect-ratio:1/1.414;
+  border:1px solid rgba(255,255,255,.055);
+  border-radius:2px;
+  right:-7vw; top:50%;
 }
+.sheets i:nth-child(1){ transform:translateY(-50%) rotate(-11deg); }
+.sheets i:nth-child(2){ transform:translateY(-50%) rotate(-5deg) translateX(-3vw); border-color:rgba(255,255,255,.038); }
+.sheets i:nth-child(3){ transform:translateY(-50%) rotate(1.5deg) translateX(-6vw); border-color:rgba(255,255,255,.022); }
+
+/* fine grain */
+body::after{
+  content:''; position:fixed; inset:0; z-index:1; pointer-events:none; opacity:.32;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.42'/%3E%3C/svg%3E");
+}
+
+main{ position:relative; z-index:2; width:100%; max-width:660px; }
+
+/* ---------------- header ---------------- */
+.eyebrow{
+  display:flex; align-items:center; gap:.85rem;
+  font-family:var(--display); font-weight:500;
+  font-size:.63rem; letter-spacing:.3em; text-transform:uppercase; color:var(--dim);
+}
+.eyebrow::before{
+  content:''; width:26px; height:1px; background:var(--dim); flex:none;
+}
+
 h1{
   font-family:var(--display); font-weight:700;
-  font-size:clamp(2.1rem,7vw,3.1rem); line-height:1.05;
-  letter-spacing:.02em; color:var(--paper);
-  margin:1.1rem 0 0;
+  font-size:clamp(2.35rem,8.5vw,3.7rem); line-height:1.02;
+  letter-spacing:.005em; color:var(--paper);
+  margin:1.25rem 0 0;
 }
-.rule{ width:44px; height:3px; background:var(--paper); margin:1.6rem 0 1.5rem; }
+h1 em{
+  font-style:normal; font-weight:400; color:var(--dim);
+}
+
 .lede{
-  font-size:1rem; line-height:1.7; color:var(--soft); max-width:46ch;
-  font-weight:300;
+  margin-top:1.5rem; max-width:44ch;
+  font-size:1.02rem; line-height:1.75; font-weight:300; color:var(--soft);
 }
 
-.people{ list-style:none; margin:3.2rem 0 0; }
-.people li{
-  display:flex; align-items:baseline; gap:1.1rem;
-  padding:1.05rem 0;
-  border-top:1px solid var(--rule);
-}
-.people li:last-child{ border-bottom:1px solid var(--rule); }
-.people .n{
+/* ---------------- roster ---------------- */
+.count{
+  display:flex; align-items:baseline; gap:.7rem;
+  margin:3.4rem 0 .4rem;
   font-family:var(--display); font-weight:600;
-  font-size:.72rem; color:var(--dim); letter-spacing:.1em;
-  flex:none; width:2.2rem;
+  font-size:.6rem; letter-spacing:.26em; text-transform:uppercase; color:var(--dim);
 }
-.people .who{
+.count::after{ content:''; flex:1; height:1px; background:var(--hair); }
+
+.roster{ list-style:none; position:relative; padding-left:34px; }
+.roster::before{
+  content:''; position:absolute; left:5px; top:1.55rem; bottom:1.55rem;
+  width:1px; background:var(--hair);
+}
+.roster li{
+  position:relative;
+  padding:1.15rem 0;
+  border-bottom:1px solid var(--hair);
+  display:flex; align-items:baseline; gap:1.15rem;
+  transition:padding-left .35s cubic-bezier(.2,.7,.3,1);
+}
+.roster li::before{                       /* hollow node, as on the CV timeline */
+  content:''; position:absolute; left:-34px; top:1.55rem;
+  width:11px; height:11px; border-radius:50%;
+  border:1.5px solid var(--dim); background:var(--ground);
+  transition:background .35s ease, border-color .35s ease, transform .35s cubic-bezier(.2,.7,.3,1);
+}
+.roster li:hover{ padding-left:8px; }
+.roster li:hover::before{
+  background:var(--paper); border-color:var(--paper); transform:scale(1.12);
+}
+.roster li:hover .name{ color:var(--paper); }
+
+.idx{
+  font-family:var(--display); font-weight:600; font-size:.66rem;
+  letter-spacing:.14em; color:var(--dim); flex:none; width:1.5rem;
+}
+.name{
   font-family:var(--display); font-weight:600;
-  font-size:clamp(1.05rem,3.4vw,1.28rem); color:var(--paper);
-  letter-spacing:.01em;
+  font-size:clamp(1.08rem,3.6vw,1.35rem); letter-spacing:.008em;
+  color:#E9EDF2; transition:color .3s ease;
 }
 
+/* ---------------- footer ---------------- */
 footer{
-  margin-top:3.4rem; padding-top:1.4rem; border-top:1px solid var(--rule);
-  font-size:.82rem; line-height:1.65; color:var(--dim); font-weight:300;
+  margin-top:3.6rem;
+  font-size:.82rem; line-height:1.7; font-weight:300; color:var(--dim);
+  max-width:48ch;
 }
-footer b{ color:var(--soft); font-weight:400; }
-a{ color:var(--soft); }
+footer strong{ color:var(--soft); font-weight:400; }
+.sig{
+  margin-top:1.5rem; display:flex; align-items:center; gap:.7rem;
+  font-family:var(--display); font-weight:600;
+  font-size:.68rem; letter-spacing:.2em; text-transform:uppercase; color:var(--soft);
+}
+.sig a{ color:var(--dim); text-decoration:none; border-bottom:1px solid transparent; transition:color .25s, border-color .25s; }
+.sig a:hover{ color:var(--paper); border-bottom-color:var(--hair); }
+.sig span{ color:var(--hair); }
 
+/* ---------------- motion ---------------- */
 @media (prefers-reduced-motion:no-preference){
-  .wrap > *, .people li{ animation:rise .6s cubic-bezier(.2,.7,.3,1) backwards; }
-  .wrap > *:nth-child(2){ animation-delay:.05s }
-  .wrap > *:nth-child(3){ animation-delay:.1s }
-  .wrap > *:nth-child(4){ animation-delay:.15s }
-  .people li:nth-child(1){ animation-delay:.24s }
-  .people li:nth-child(2){ animation-delay:.30s }
-  .people li:nth-child(3){ animation-delay:.36s }
-  .people li:nth-child(4){ animation-delay:.42s }
-  @keyframes rise{ from{ opacity:0; transform:translateY(10px) } to{ opacity:1; transform:none } }
+  .eyebrow,h1,.lede,.count,.roster li,footer{
+    animation:rise .75s cubic-bezier(.2,.75,.25,1) backwards;
+  }
+  h1{ animation-delay:.06s }
+  .lede{ animation-delay:.13s }
+  .count{ animation-delay:.22s }
+  .roster li:nth-child(1){ animation-delay:.30s }
+  .roster li:nth-child(2){ animation-delay:.37s }
+  .roster li:nth-child(3){ animation-delay:.44s }
+  .roster li:nth-child(4){ animation-delay:.51s }
+  .roster li:nth-child(5){ animation-delay:.58s }
+  footer{ animation-delay:.66s }
+  @keyframes rise{ from{ opacity:0; transform:translateY(14px) } to{ opacity:1; transform:none } }
+}
+
+@media (max-width:520px){
+  body{ padding:7vh 7vw; }
+  .roster{ padding-left:26px; }
+  .roster li::before{ left:-26px; }
+  .roster::before{ left:5px; }
+  .sheets i{ right:-22vw; width:70vw; }
 }
 </style>
 </head>
 <body>
-  <main class="wrap">
-    <p class="eyebrow">Curriculum Vitae Design</p>
-    <h1>Résumé work</h1>
-    <div class="rule"></div>
-    <p class="lede">An index of the curricula vitae I have written and designed. Each one is built from scratch for the post the person is actually applying for.</p>
+  <div class="sheets" aria-hidden="true"><i></i><i></i><i></i></div>
 
-    <ol class="people">
-      <li><span class="n">01</span><span class="who">Dewmini Abekoon</span></li>
+  <main>
+    <p class="eyebrow">Curriculum Vitae — Writing &amp; Design</p>
+    <h1>Résumé <em>work</em></h1>
+    <p class="lede">Every CV here is written from scratch for the post the person is actually applying for — the wording, the evidence and the layout all built around that one application.</p>
+
+    <p class="count">People</p>
+    <ol class="roster">
+      <li><span class="idx">01</span><span class="name">Dewmini Abekoon</span></li>
     </ol>
 
     <footer>
-      Names only. The documents and every personal detail in them are kept in a
-      <b>private</b> repository and are not published here.
-      <br>Thimira Perera · <a href="mailto:thimiraperera10@gmail.com">thimiraperera10@gmail.com</a>
+      Names only. The documents, and every personal detail inside them, are kept
+      in a <strong>private</strong> repository and are never published here.
+      <div class="sig">
+        Thimira Perera <span>·</span> <a href="https://github.com/thimiraperera">github.com/thimiraperera</a>
+      </div>
     </footer>
   </main>
 </body>
